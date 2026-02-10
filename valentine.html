@@ -1,0 +1,35 @@
+<script>
+const noBtn = document.getElementById("noBtn");
+const container = document.getElementById("container");
+
+function moveButton() {
+    const maxX = container.clientWidth - noBtn.offsetWidth;
+    const maxY = container.clientHeight - noBtn.offsetHeight;
+
+    const randomX = Math.random() * maxX;
+    const randomY = Math.random() * maxY;
+
+    noBtn.style.left = randomX + "px";
+    noBtn.style.top = randomY + "px";
+}
+
+// Desktop hover
+noBtn.addEventListener("mouseover", moveButton);
+
+// Mobile touch
+noBtn.addEventListener("touchstart", function (e) {
+    e.preventDefault(); // prevents accidental clicks
+    moveButton();
+});
+
+function acceptInvitation() {
+    document.getElementById("question").innerText =
+        "Yay!! 💖 Happy Valentine’s Day!";
+
+    document.getElementById("statusGif").src =
+        "https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif";
+
+    document.querySelector(".buttons").style.display = "none";
+}
+</script>
+nobtn.style.top
