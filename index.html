@@ -1,3 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Valentine 💖</title>
+</head>
+<body>
+
+<h1 id="question">Will you be my Valentine?</h1>
+
+<div id="container" style="position:relative; height:300px;">
+    <button onclick="acceptInvitation()">Yes</button>
+    <button id="noBtn" style="position:absolute;">No</button>
+</div>
+
+<img id="statusGif" width="200">
+
 <script>
 const noBtn = document.getElementById("noBtn");
 const container = document.getElementById("container");
@@ -13,24 +29,12 @@ function moveButton() {
     noBtn.style.top = randomY + "px";
 }
 
-// Desktop hover
 noBtn.addEventListener("mouseover", moveButton);
 
-// Mobile touch
 noBtn.addEventListener("touchstart", function (e) {
-    e.preventDefault(); // prevents accidental clicks
+    e.preventDefault();
     moveButton();
 });
 
 function acceptInvitation() {
-    document.getElementById("question").innerText =
-        "Yay!! 💖 Happy Valentine’s Day!";
-
-    document.getElementById("statusGif").src =
-        "https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif";
-
-    document.querySelector(".buttons").style.display = "none";
-}
-</script>
-nobtn.style.top
-
+    document.getElementById("question").innerTe
