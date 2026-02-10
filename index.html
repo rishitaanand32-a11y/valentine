@@ -1,44 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Valentine</title>
+<title>Valentine 💖</title>
 
 <style>
 body {
-  background: linear-gradient(135deg, #ff9ecf, #ffc1e3, #ffd6ec);
-  text-align: center;
-  color: #ffffff;
-  overflow: hidden;
-  font-family: Arial, sans-serif;
-}
-
-/* Optional: make buttons pink too */
-button {
-  padding: 10px 20px;
-  font-size: 18px;
-  margin: 10px;
-  cursor: pointer;
-  background-color: #ff4da6;
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: Arial;
   color: white;
-  border: none;
-  border-radius: 10px;
+  overflow: hidden;
 }
 
-button:hover {
-  background-color: #ff1a8c;
+h1 {
+  font-size: 32px;
+  text-align: center;
+}
+
+button {
+  padding: 12px 24px;
+  font-size: 18px;
+  border: none;
+  border-radius: 20px;
+  margin: 10px;
+  background: white;
+  color: #ff1493;
+  cursor: pointer;
 }
 
 .heart {
   position: fixed;
-  top: -10px;
   font-size: 24px;
-  animation: fall linear forwards;
+  animation: float 4s linear infinite;
 }
 
-@keyframes fall {
-  to {
-    transform: translateY(110vh);
-  }
+@keyframes float {
+  from { transform: translateY(100vh); opacity: 1; }
+  to { transform: translateY(-10vh); opacity: 0; }
 }
 </style>
 
@@ -46,66 +49,41 @@ button:hover {
 
 <body>
 
-<h1 id="question">Will you be my Valentine? 💖</h1>
-<img src="cute.gif" width="300">
+<h1 id="text">Will you be my Valentine? 💕</h1>
 
-
-<img src="https://media.giphy.com/media/3oriO0Ed9QIDdllqo/giphy.gif" width="200">
-
-<div id="container" style="position:relative; height:300px;">
-  <button onclick="acceptInvitation()">Yes</button>
-  <button id="noBtn" style="position:absolute;">No</button>
+<div>
+<button onclick="yes()">Yes 💖</button>
+<button id="no">No 😢</button>
 </div>
 
-<div style="font-size:30px;">
-💖 💕 💗 💓 💘 💝
-</div>
-
-</body>
-  
 <script>
-
-const noBtn = document.getElementById("noBtn");
-const container = document.getElementById("container");
-
-function moveButton() {
-  const maxX = container.clientWidth - noBtn.offsetWidth;
-  const maxY = container.clientHeight - noBtn.offsetHeight;
-
-  const randX = Math.random() * maxX;
-  const randY = Math.random() * maxY;
-
-  noBtn.style.left = randX + "px";
-  noBtn.style.top = randY + "px";
+function yes() {
+  document.getElementById("text").innerText =
+    "Yayyy! I love you! 💞";
 }
 
-noBtn.addEventListener("mouseover", moveButton);
+const noBtn = document.getElementById("no");
 
-function acceptInvitation() {
-  document.getElementById("question").innerText =
-    "Yayyy! I love you! 💖";
-}
+noBtn.addEventListener("mouseover", () => {
+  noBtn.style.position = "absolute";
+  noBtn.style.left = Math.random() * 80 + "%";
+  noBtn.style.top = Math.random() * 80 + "%";
+});
 
-function createHeart() {
+setInterval(() => {
   const heart = document.createElement("div");
   heart.className = "heart";
-  heart.innerHTML = "💖";
+  heart.innerText = "💗";
   heart.style.left = Math.random() * 100 + "vw";
-  heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
-
   document.body.appendChild(heart);
 
-  setTimeout(() => {
-    heart.remove();
-  }, 5000);
-}
-
-setInterval(createHeart, 300);
-
+  setTimeout(() => heart.remove(), 4000);
+}, 300);
 </script>
 
 </body>
 </html>
+
 
 
 
